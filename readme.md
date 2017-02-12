@@ -49,6 +49,18 @@ The example above needs a lot of work, for example we should need to use get-map
 Docs can be found at http://tachyons.io/docs
 The modules are generally pretty small and thus quick and easy to read.
 
+### Install
+
+Add the the gem to your project
+```
+gem 'tachyons-rails'
+```
+
+Add a reference to your assets
+```
+@import "tachyons";
+```
+
 ## Docs
 The tachyons docs located at http://tachyons.io are all open source and located at https://github.com/tachyons-css/tachyons-css.github.io
 
