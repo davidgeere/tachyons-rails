@@ -1,0 +1,18 @@
+/*
+   FONT STYLE
+   Docs: http://tachyons.io/docs/typography/font-style/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@mixin font-style-italic()
+{
+	font-style: italic;
+}
+
+@mixin font-style-normal()
+{
+	font-style: normal;
+}

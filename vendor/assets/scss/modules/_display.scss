@@ -1,0 +1,46 @@
+/*
+   DISPLAY
+   Docs: http://tachyons.io/docs/layout/display
+   Base:
+    d = display
+   Modifiers:
+    n     = none
+    b     = block
+    ib    = inline-block
+    it    = inline-table
+    t     = table
+    tc    = table-cell
+    t-row          = table-row
+    t-columm       = table-column
+    t-column-group = table-column-group
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$display-designations:
+(
+	n: none,
+	i: inline,
+	b: block,
+	ib: inline-block,
+	it: inline-table,
+	t: table,
+	tc: table-cell,
+	t-row: table-row,
+	t-row-group: table-row-group,
+	t-column: table-column,
+	t-column-group: table-column-group,
+);
+
+@mixin display-base($designation)
+{
+	display: $designation;
+}
+
+@mixin display-table()
+{
+	table-layout: fixed;
+  width: 100%;
+}

@@ -1,0 +1,28 @@
+/*
+   LETTER SPACING
+   Docs: http://tachyons.io/docs/typography/tracking/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.tracked { @include letter-spacing-base; }
+
+@each $name, $tracking in $trackings
+{
+	.tracked-#{$name} { @include letter-spacing-base($tracking); }
+}
+
+@each $key, $value in $breakpoints
+{
+ @media #{$value}
+ {
+	 .tracked-#{$key} { @include letter-spacing-base; }
+
+	 @each $name, $tracking in $trackings
+	 {
+	 	.tracked-#{$name}-#{$key} { @include letter-spacing-base($tracking); }
+	 }
+ }
+}

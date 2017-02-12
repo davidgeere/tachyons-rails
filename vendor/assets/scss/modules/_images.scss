@@ -1,0 +1,13 @@
+/*
+   IMAGES
+   Docs: http://tachyons.io/docs/elements/images/
+*/
+
+/* Responsive images! */
+
+$image-max-width: 100% !default;
+
+@mixin image-base
+{
+	max-width: $image-max-width;
+}

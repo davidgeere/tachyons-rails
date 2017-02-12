@@ -1,0 +1,36 @@
+/*
+   CLEARFIX
+   http://tachyons.io/docs/layout/clearfix/
+*/
+
+/* Nicolas Gallaghers Clearfix solution
+   Ref: http://nicolasgallagher.com/micro-clearfix-hack/ */
+
+$clear-directions:
+(
+	l: left,
+	r: right,
+	b: both,
+	n: none,
+);
+
+@mixin clear-float()
+{
+	*zoom: 1;
+
+	&:after
+	{
+		clear: both;
+	}
+
+	&:before, &:after
+	{
+		content: " ";
+		display: table;
+	}
+}
+
+@mixin clear-base($direction: left)
+{
+	clear: $direction;
+}

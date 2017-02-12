@@ -1,0 +1,10 @@
+/*
+  BOX SIZING
+*/
+
+$box-sizing: border-box !default;
+
+@mixin box-sizing-base()
+{
+  box-sizing: $box-sizing;
+}

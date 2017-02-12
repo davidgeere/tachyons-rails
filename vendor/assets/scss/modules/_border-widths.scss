@@ -1,0 +1,45 @@
+/*
+   BORDER WIDTHS
+   Docs: http://tachyons.io/docs/themes/borders/
+   Base:
+     bw = border-width
+   Modifiers:
+     0 = 0 width border
+     1 = 1st step in border-width scale
+     2 = 2nd step in border-width scale
+     3 = 3rd step in border-width scale
+     4 = 4th step in border-width scale
+     5 = 5th step in border-width scale
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$border-widths:
+(
+	0: 0,
+	1: .125rem,
+	2: .25rem,
+	3: .5rem,
+	4: 1rem,
+	5: 2rem,
+);
+
+$border-width-resets:
+(
+	t: top,
+	r: right,
+	b: bottom,
+	l: left,
+);
+
+@mixin border-width-base($width: 0)
+{
+	border-width: $width;
+}
+
+@mixin border-width-reset($side)
+{
+	border-#{$side}-width: 0;
+}

@@ -1,0 +1,39 @@
+/*
+   TYPOGRAPHY
+   http://tachyons.io/docs/typography/measure/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.measure { @include typography-measure; }
+
+@each $name, $measure in $typography-measures
+{
+	.measure-#{$name} { @include typography-measure($measure); }
+}
+
+.indent { @include typography-indent; }
+.small-caps { @include typography-small-caps; }
+.truncate { @include typography-truncate; }
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $transform in $text-transforms
+	  {
+			.measure-#{$key} { @include typography-measure; }
+
+			@each $name, $measure in $typography-measures
+			{
+				.measure-#{$name}-#{$key} { @include typography-measure($measure); }
+			}
+
+			.indent-#{$key} { @include typography-indent; }
+			.small-caps-#{$key} { @include typography-small-caps; }
+			.truncate-#{$key} { @include typography-truncate; }
+	  }
+	}
+}

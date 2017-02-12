@@ -1,0 +1,25 @@
+/*
+   OUTLINES
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$outline-width: 1px !default;
+$outline-style: solid !default;
+
+@mixin outline-base
+{
+	outline: $outline-width $outline-style;
+}
+
+@mixin outline-transparent
+{
+	outline: $outline-width $outline-style transparent;
+}
+
+@mixin outline-none
+{
+	outline: 0;
+}

@@ -1,0 +1,25 @@
+/*
+  TABLES
+  Docs: http://tachyons.io/docs/elements/tables/
+*/
+
+$stripes-palette:
+(
+	light-silver: $light-silver,
+	moon-gray: $moon-gray,
+	light-gray: $light-gray,
+	near-white: $near-white,
+	light: $white-10,
+	dark: $black-10,
+);
+
+@mixin table-collapse
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@mixin table-stripe-odd($color)
+{
+	background-color: $color;
+}

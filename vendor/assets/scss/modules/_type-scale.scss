@@ -1,0 +1,39 @@
+/*
+   TYPE SCALE
+   Docs: http://tachyons.io/docs/typography/scale/
+   Base:
+    f = font-size
+   Modifiers
+     1 = 1st step in size scale
+     2 = 2nd step in size scale
+     3 = 3rd step in size scale
+     4 = 4th step in size scale
+     5 = 5th step in size scale
+     6 = 6th step in size scale
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+/*
+ * For Hero/Marketing Titles
+ *
+ * These generally are too large for mobile
+ * so be careful using them on smaller screens.
+ * */
+
+ $type-scales:
+ (
+ 	1: 3rem,
+ 	2: 2.25rem,
+ 	3: 1.5rem,
+ 	4: 1.25rem,
+ 	5: 1rem,
+ 	6: .875rem,
+ );
+
+ @mixin type-scale-base($size)
+ {
+	 font-size: $size;
+ }

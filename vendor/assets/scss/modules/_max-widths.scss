@@ -1,0 +1,40 @@
+/*
+   MAX WIDTHS
+   Docs: http://tachyons.io/docs/layout/max-widths/
+   Base:
+     mw = max-width
+   Modifiers
+     1 = 1st step in width scale
+     2 = 2nd step in width scale
+     3 = 3rd step in width scale
+     4 = 4th step in width scale
+     5 = 5th step in width scale
+     6 = 6st step in width scale
+     7 = 7nd step in width scale
+     8 = 8rd step in width scale
+     9 = 9th step in width scale
+     -100 = literal value 100%
+     -none  = string value none
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$max-widths:
+(
+	1: 1rem,
+	2: 2rem,
+	3: 4rem,
+	4: 8rem,
+	5: 16rem,
+	6: 32rem,
+	7: 48rem,
+	8: 64rem,
+	9: 96rem,
+);
+
+@mixin max-width-base($width: 100%)
+{
+	max-width: $width;
+}

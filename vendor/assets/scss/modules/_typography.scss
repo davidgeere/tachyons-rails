@@ -1,0 +1,42 @@
+/*
+   TYPOGRAPHY
+   http://tachyons.io/docs/typography/measure/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$text-indent: 1em;
+$text-margin-top: 0;
+$text-margin-bottom: 0;
+
+$typography-measures:
+(
+	wide: 34em,
+	narrow: 20em,
+);
+
+@mixin typography-measure($measure: 30em)
+{
+	max-width: $measure;
+}
+
+@mixin typography-indent
+{
+	text-indent: $text-indent;
+  margin-top: $text-margin-top;
+  margin-bottom: $text-margin-bottom;
+}
+
+@mixin typography-small-caps
+{
+	font-variant: small-caps;
+}
+
+@mixin typography-truncate
+{
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

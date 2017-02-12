@@ -1,0 +1,20 @@
+/*
+   TEXT DECORATION
+   Docs: http://tachyons.io/docs/typography/text-decoration/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$text-decorations:
+(
+	strike: line-through,
+	underline: underline,
+	no-underline: none,
+);
+
+@mixin text-decoration-base($decoration)
+{
+	text-decoration: $decoration;
+}

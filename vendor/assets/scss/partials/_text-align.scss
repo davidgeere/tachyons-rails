@@ -1,0 +1,30 @@
+/*
+  TEXT ALIGN
+  Docs: http://tachyons.io/docs/typography/text-align/
+  Base
+    t = text-align
+  Modifiers
+    l = left
+    r = right
+    c = center
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
+*/
+
+@each $name, $alignment in $text-alignments
+ {
+ 	.t#{$name} { @include text-align-base($alignment); }
+ }
+
+ @each $key, $value in $breakpoints
+ {
+  @media #{$value}
+  {
+		@each $name, $alignment in $text-alignments
+	  {
+	  	.t#{$name}-#{$key} { @include text-align-base($alignment); }
+	  }
+	}
+}

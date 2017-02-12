@@ -1,0 +1,26 @@
+/*
+   VISIBILITY
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+
+/*
+    Text that is hidden but accessible
+    Ref: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
+
+$visibility-position: fixed !important;
+$visibility-reposition: absolute !important;
+$visibility-clip-IE: rect(1px 1px 1px 1px);
+$visibility-clip: rect(1px, 1px, 1px, 1px);
+
+@mixin visibility-clip-base()
+{
+  position: $visibility-position;
+  _position: $visibility-reposition;
+  clip: $visibility-clip-IE; /* IE6, IE7 */
+  clip: $visibility-clip;
+}

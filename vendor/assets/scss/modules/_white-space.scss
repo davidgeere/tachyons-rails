@@ -1,0 +1,19 @@
+/*
+   WHITE SPACE
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$white-spaces:
+(
+	ws-normal: normal,
+	nowrap: nowrap,
+	pre: pre,
+);
+
+@mixin white-space-base($space)
+{
+	white-space: $space;
+}

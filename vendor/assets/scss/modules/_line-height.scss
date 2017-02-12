@@ -1,0 +1,19 @@
+/*
+   LINE HEIGHT / LEADING
+   Docs: http://tachyons.io/docs/typography/line-height
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+$line-heights:
+(
+	solid: 1,
+	title: 1.25,
+	copy: 1.5,
+);
+
+@mixin line-height-base($height: 1)
+{
+	line-height:  $height;
+}

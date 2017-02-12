@@ -1,0 +1,85 @@
+/*
+   HEIGHTS
+   Docs: http://tachyons.io/docs/layout/heights/
+   Base:
+     h = height
+     min-h = min-height
+     min-vh = min-height vertical screen height
+     vh = vertical screen height
+   Modifiers
+     1 = 1st step in height scale
+     2 = 2nd step in height scale
+     3 = 3rd step in height scale
+     4 = 4th step in height scale
+     5 = 5th step in height scale
+     -25   = literal value 25%
+     -50   = literal value 50%
+     -75   = literal value 75%
+     -100  = literal value 100%
+     -auto = string value of auto
+     -inherit = string value of inherit
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+
+/* Height Scale */
+@each $name, $scale in $height-scales
+{
+	.h#{$name} { @include height-base($scale); }
+}
+
+/* Height Percentages - Based off of height of parent */
+@each $name, $percentage in $height-percentages
+{
+	.h-#{$name} { @include height-unit($percentage, $unit: "%"); }
+}
+
+.min-h-100 { @include minimum-height("%"); }
+
+/* Screen Height Percentage */
+@each $name, $percentage in $height-percentages
+{
+	.vh-#{$name} { @include height-unit($percentage, $unit: "vh"); }
+}
+
+.min-vh-100 { @include minimum-height("vh"); }
+
+/* String Properties */
+.h-auto {     @include height-base(auto); }
+.h-inherit {  @include height-base(inherit); }
+
+
+@each $key, $value in $breakpoints
+{
+ @media #{$value}
+ {
+	 /* Height Scale */
+	 @each $name, $scale in $height-scales
+	 {
+	 	.h#{$name}-#{$key} { @include height-base($scale); }
+	 }
+
+	 /* Height Percentages - Based off of height of parent */
+	 @each $name, $percentage in $height-percentages
+	 {
+	 	.h-#{$name}-#{$key} { @include height-unit($percentage, $unit: "%"); }
+	 }
+
+	 .min-h-100-#{$key} { @include minimum-height("%"); }
+
+	 /* Screen Height Percentage */
+	 @each $name, $percentage in $height-percentages
+	 {
+	 	.vh-#{$name}-#{$key} { @include height-unit($percentage, $unit: "vh"); }
+	 }
+
+	 .min-vh-100-#{$key} { @include minimum-height("vh"); }
+
+	 /* String Properties */
+	 .h-auto-#{$key} {     @include height-base(auto); }
+	 .h-inherit-#{$key} {  @include height-base(inherit); }
+ }
+}

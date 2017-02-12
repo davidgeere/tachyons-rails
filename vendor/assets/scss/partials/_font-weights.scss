@@ -1,0 +1,41 @@
+/*
+   FONT WEIGHT
+   Docs: http://tachyons.io/docs/typography/font-weight/
+   Base
+     fw = font-weight
+   Modifiers:
+     1 = literal value 100
+     2 = literal value 200
+     3 = literal value 300
+     4 = literal value 400
+     5 = literal value 500
+     6 = literal value 600
+     7 = literal value 700
+     8 = literal value 800
+     9 = literal value 900
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.normal { @include font-weight-base(normal); }
+.b { @include font-weight-base(bold); }
+@each $name, $modifier in $font-weight-modifiers
+{
+	.fw#{$name} { @include font-weight-base($modifier); }
+}
+
+@each $key, $value in $breakpoints
+{
+ @media #{$value}
+ {
+	 .normal-#{$key} { @include font-weight-base(normal); }
+	 .b-#{$key} { @include font-weight-base(bold); }
+
+	 @each $name, $modifier in $font-weight-modifiers
+	 {
+	 	.fw#{$name}-#{$key} { @include font-weight-base($modifier); }
+	 }
+ }
+}

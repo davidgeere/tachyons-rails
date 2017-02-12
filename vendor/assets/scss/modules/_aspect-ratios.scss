@@ -1,0 +1,53 @@
+/*
+   ASPECT RATIOS
+*/
+
+$aspect-ratio-height: 0 !default;
+$aspect-ratio-position: relative !default;
+
+$aspect-ratio-object-position: absolute !default;
+$aspect-ratio-object-top: 0 !default;
+$aspect-ratio-object-right: 0 !default;
+$aspect-ratio-object-bottom: 0 !default;
+$aspect-ratio-object-left: 0 !default;
+$aspect-ratio-object-width: 100% !default;
+$aspect-ratio-object-height: 100% !default;
+$aspect-ratio-object-z-index: 100 !default;
+
+$aspect-ratios:
+(
+  16x9: 56.25%,
+	9x16: 177.77%,
+	4x3: 75%,
+	3x4: 133.33%,
+	6x4: 66.6%,
+	4x6: 150%,
+	8x5: 62.5%,
+	5x8: 160%,
+	7x5: 71.42%,
+	5x7: 140%,
+	1x1: 100%,
+);
+
+@mixin aspect-ratio-base
+{
+	height: $aspect-ratio-height;
+  position: $aspect-ratio-position;
+}
+
+@mixin aspect-ratio-padding($padding: 100%)
+{
+	padding-bottom: $padding;
+}
+
+@mixin aspect-ratio-object
+{
+	position: $aspect-ratio-object-position;
+	top: $aspect-ratio-object-top;
+	right: $aspect-ratio-object-right;
+	bottom: $aspect-ratio-object-bottom;
+	left: $aspect-ratio-object-left;
+	width: $aspect-ratio-object-width;
+	height: $aspect-ratio-object-height;
+	z-index: $aspect-ratio-object-z-index;
+}

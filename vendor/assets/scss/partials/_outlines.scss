@@ -1,0 +1,21 @@
+/*
+   OUTLINES
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.outline { @include outline-base; }
+.outline-transparent { @include outline-transparent; }
+.outline-0 { @include outline-none; }
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		.outline-#{$key} { @include outline-base; }
+		.outline-transparent-#{$key} { @include outline-transparent; }
+		.outline-0-#{$key} { @include outline-none; }
+	}
+}

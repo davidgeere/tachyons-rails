@@ -1,0 +1,17 @@
+/*
+  TABLES
+  Docs: http://tachyons.io/docs/elements/tables/
+*/
+
+.collapse 
+{
+    @include table-collapse;
+}
+
+@each $name, $color in $stripes-palette
+{
+	.stripe-#{$name}:nth-child(odd)
+	{
+	  @include table-stripe-odd($color);
+	}
+}

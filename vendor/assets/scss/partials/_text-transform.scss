@@ -1,0 +1,31 @@
+/*
+   TEXT TRANSFORM
+   Docs: http://tachyons.io/docs/typography/text-transform/
+   Base:
+     tt = text-transform
+   Modifiers
+     c = capitalize
+     l = lowercase
+     u = uppercase
+     n = none
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $name, $transform in $text-transforms
+ {
+ 	.tt#{$name} { @include text-transform-base($transform); }
+ }
+
+ @each $key, $value in $breakpoints
+ {
+  @media #{$value}
+  {
+		@each $name, $transform in $text-transforms
+	  {
+	  	.tt#{$name}-#{$key} { @include text-transform-base($transform); }
+	  }
+	}
+}

@@ -1,0 +1,40 @@
+/*
+    BORDERS
+    Docs: http://tachyons.io/docs/themes/borders/
+    Base:
+      b = border
+    Modifiers:
+      a = all
+      t = top
+      r = right
+      b = bottom
+      l = left
+      n = none
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$border-width: 1px !default;
+$border-style: solid !default;
+
+$border-modifiers:
+(
+	t: -top,
+	r: -right,
+	b: -bottom,
+	l: -left,
+);
+
+@mixin border-base($modifier: "")
+{
+	border#{unquote($modifier)}-style: $border-style;
+	border#{unquote($modifier)}-width: $border-width;
+}
+
+@mixin border-none()
+{
+	border-style: none;
+	border-width: 0;
+}

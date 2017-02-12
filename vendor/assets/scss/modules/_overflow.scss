@@ -1,0 +1,14 @@
+/*
+    OVERFLOW
+    Media Query Extensions:
+      -ns = not-small
+      -m  = medium
+      -l  = large
+ */
+
+ $overflow-states: visible, hidden, scroll, auto;
+
+ @mixin overflow-base($state, $coord: "")
+ {
+ 	overflow#{unquote($coord)}:  $state;
+ }

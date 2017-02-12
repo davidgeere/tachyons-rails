@@ -1,0 +1,23 @@
+/*
+   WHITE SPACE
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $name, $space in $white-spaces
+{
+	.#{$name} { @include white-space-base($space); }
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $space in $white-spaces
+		{
+			.#{$name}-#{$key} { @include white-space-base($space); }
+		}
+	}
+}

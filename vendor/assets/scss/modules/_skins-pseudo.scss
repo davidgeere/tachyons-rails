@@ -1,0 +1,24 @@
+/*
+
+   SKINS:PSEUDO
+   Customize the color of an element when
+   it is focused or hovered over.
+
+ */
+ /* Text colors */
+ @mixin hover-text-color-base($color: $black)
+ {
+		&:hover, &:focus
+		{
+			color: $color;
+		}
+ }
+
+ /* Background colors */
+ @mixin hover-background-color-base($color: $white)
+ {
+		&:hover, &:focus
+		{
+			background-color: $color;
+		}
+ }

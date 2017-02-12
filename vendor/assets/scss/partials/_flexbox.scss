@@ -1,0 +1,63 @@
+/*
+  FLEXBOX
+  Media Query Extensions:
+   -ns = not-small
+   -m  = medium
+   -l  = large
+*/
+
+.flex 				{ @include flex-display($display: flex); }
+.inline-flex 	{ @include flex-display($display: inline-flex); }
+.flex-auto 		{ @include flex-auto(); }
+.flex-none 		{ @include flex-none(); }
+
+.flex-column 	{ @include flex-column(); }
+.flex-row 		{ @include flex-row(); }
+.flex-wrap 		{ @include flex-wrap(); }
+
+@each $name, $values in $flex-types
+{
+	$attribute: map-get($values, attribute);
+	$options: map-get($values, options);
+
+	@each $option in $options
+	{
+		.#{$name}-#{$option} { @include flex-base($attribute, $option); }
+	}
+}
+
+@each $name, $order in $flex-orders
+{
+	.order-#{$name} { @include flex-order($order); }
+}
+
+@each $key, $value in $breakpoints
+{
+ @media #{$value}
+ {
+	 .flex-#{$key}					{ @include flex-display($display: flex); }
+	 .inline-flex-#{$key} 	{ @include flex-display($display: inline-flex); }
+	 .flex-auto-#{$key} 		{ @include flex-auto(); }
+	 .flex-none-#{$key} 		{ @include flex-none(); }
+
+	 .flex-column-#{$key} 	{ @include flex-column(); }
+	 .flex-row-#{$key} 			{ @include flex-row(); }
+	 .flex-wrap-#{$key} 		{ @include flex-wrap(); }
+
+	 @each $name, $values in $flex-types
+	 {
+	 	$attribute: map-get($values, attribute);
+	 	$options: map-get($values, options);
+
+	 	@each $option in $options
+	 	{
+	 		.#{$name}-#{$option}-#{$key} { @include flex-base($attribute, $option); }
+	 	}
+	 }
+
+	 @each $name, $order in $flex-orders
+	 {
+	 	.order-#{$name}-#{$key} { @include flex-order($order); }
+	 }
+ }
+}

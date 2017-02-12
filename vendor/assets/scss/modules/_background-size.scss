@@ -1,0 +1,26 @@
+/*
+   BACKGROUND SIZE
+   Docs: http://tachyons.io/docs/themes/background-size/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+/*
+  Often used in combination with background image set as an inline style
+  on an html element.
+*/
+
+$background-size-cover: cover !default;
+$background-size-contain: contain !default;
+
+@mixin background-size-cover
+{
+	background-size: cover !important;
+}
+
+@mixin background-size-contain
+{
+	background-size: contain !important;
+}

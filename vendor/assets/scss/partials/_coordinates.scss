@@ -1,0 +1,46 @@
+/*
+   COORDINATES
+   Docs: http://tachyons.io/docs/layout/position/
+   Use in combination with the position module.
+   Base:
+     top
+     bottom
+     right
+     left
+   Modifiers:
+     -0  = literal value 0
+     -1  = literal value 1
+     -2  = literal value 2
+     --1 = literal value -1
+     --2 = literal value -2
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $position in $coordinate-positions
+{
+	@each $name, $literal in $coordinate-literals
+	{
+		.#{$position}-#{$name} { @include coordinate-base($position, $literal); }
+	}
+}
+
+.absolute--fill { @include absolute-fill; }
+
+@each $key, $value in $breakpoints
+{
+ @media #{$value}
+ {
+	 @each $position in $coordinate-positions
+	 {
+	 	@each $name, $literal in $coordinate-literals
+	 	{
+	 		.#{$position}-#{$name}-#{$key} { @include coordinate-base($position, $literal); }
+	 	}
+	 }
+
+	 .absolute--fill-#{$key} { @include absolute-fill; }
+ }
+}

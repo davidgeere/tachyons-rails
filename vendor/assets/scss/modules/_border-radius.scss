@@ -1,0 +1,60 @@
+/*
+   BORDER RADIUS
+   Docs: http://tachyons.io/docs/themes/border-radius/
+   Base:
+     br   = border-radius
+   Modifiers:
+     0    = 0/none
+     1    = 1st step in scale
+     2    = 2nd step in scale
+     3    = 3rd step in scale
+     4    = 4th step in scale
+   Literal values:
+     -100 = 100%
+     -pill = 9999px
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+$border-radius-sizes:
+(
+	0: 0,
+	1: .125rem,
+	2: .25rem,
+	3: .5rem,
+	4: 1rem,
+	-100: 100%,
+	-pill: 9999px,
+);
+
+$border-radius-sides: top, right, bottom, left;
+
+@mixin border-radius-base($radius: 0)
+{
+	border-radius: $radius;
+}
+
+@mixin border-radius-side($side)
+{
+	@if $side == top
+	{
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	@else if $side == right
+	{
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	@else if $side == bottom
+	{
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+	@else if $side == left
+	{
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}

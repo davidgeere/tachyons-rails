@@ -1,0 +1,37 @@
+/*
+    BORDERS
+    Docs: http://tachyons.io/docs/themes/borders/
+    Base:
+      b = border
+    Modifiers:
+      a = all
+      t = top
+      r = right
+      b = bottom
+      l = left
+      n = none
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+.ba { @include border-base; }
+@each $name, $modifier in $border-modifiers
+{
+ .b#{$name} { @include border-base($modifier); }
+}
+.bn { @include border-none; }
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		.ba-#{$key} { @include border-base; }
+		@each $name, $modifier in $border-modifiers
+		{
+		 .b#{$name}-#{$key} { @include border-base($modifier); }
+		}
+		.bn-#{$key} { @include border-none; }
+	}
+}
