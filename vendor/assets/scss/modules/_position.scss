@@ -1,0 +1,15 @@
+/*
+   POSITIONING
+   Docs: http://tachyons.io/docs/layout/position/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$positions: static, relative, absolute, fixed;
+
+@mixin position-base($position)
+{
+	position: $position;
+}

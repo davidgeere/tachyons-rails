@@ -1,0 +1,44 @@
+/*
+   COORDINATES
+   Docs: http://tachyons.io/docs/layout/position/
+   Use in combination with the position module.
+   Base:
+     top
+     bottom
+     right
+     left
+   Modifiers:
+     -0  = literal value 0
+     -1  = literal value 1
+     -2  = literal value 2
+     --1 = literal value -1
+     --2 = literal value -2
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$coordinate-literals:
+(
+	0: 0,
+	1: 1rem,
+	2: 2rem,
+	-1: -1rem,
+	-2: -2rem,
+);
+
+$coordinate-positions: top, right, bottom, left;
+
+@mixin absolute-fill()
+{
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin coordinate-base($position, $literal)
+{
+	#{$position}: $literal;
+}

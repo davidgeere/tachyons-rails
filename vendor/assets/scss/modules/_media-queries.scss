@@ -1,0 +1,13 @@
+/*
+Keys
+	-	ns: not-small
+	-	m: medium
+	-	l: large
+*/
+
+$breakpoints:
+(
+  ns: 'screen and (min-width: 30em)',
+  m: 'screen and (min-width: 30em) and (max-width: 60em)',
+  l: 'screen and (min-width: 60em)',
+);

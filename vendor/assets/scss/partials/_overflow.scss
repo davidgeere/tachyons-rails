@@ -1,0 +1,43 @@
+/*
+    OVERFLOW
+    Media Query Extensions:
+      -ns = not-small
+      -m  = medium
+      -l  = large
+ */
+
+@each $state in $overflow-states
+{
+	.overflow-#{$state} { @include overflow-base($state); }
+}
+
+@each $state in $overflow-states
+{
+	.overflow-y-#{$state} { @include overflow-base($state, $coord: "-y"); }
+}
+
+@each $state in $overflow-states
+{
+	.overflow-x-#{$state} { @include overflow-base($state, $coord: "-x"); }
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $state in $overflow-states
+		{
+			.overflow-#{$state}-#{$key} { @include overflow-base($state); }
+		}
+
+		@each $state in $overflow-states
+		{
+			.overflow-y-#{$state}-#{$key} { @include overflow-base($state, $coord: "-y"); }
+		}
+
+		@each $state in $overflow-states
+		{
+			.overflow-x-#{$state}-#{$key} { @include overflow-base($state, $coord: "-x"); }
+		}
+	}
+}

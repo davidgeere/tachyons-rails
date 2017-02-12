@@ -1,0 +1,61 @@
+/*
+  HOVER EFFECTS
+  Docs: http://tachyons.io/docs/themes/hovers/
+    - Dim
+    - Glow
+    - Hide Child
+    - Underline text
+    - Grow
+    - Pointer
+    - Shadow
+*/
+
+/*
+  Dim element on hover by adding the dim class.
+*/
+.dim { @include hover-dim(); }
+
+/*
+  Animate opacity to 100% on hover by adding the glow class.
+*/
+.glow { @include hover-glow(); }
+
+/*
+  Hide child & reveal on hover:
+  Put the hide-child class on a parent element and any nested element with the
+  child class will be hidden and displayed on hover or focus.
+  <div class="hide-child">
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+  </div>
+*/
+
+.hide-child { @include hover-hide-child(); }
+
+.underline-hover { @include hover-underline(); }
+
+/* Can combine this with overflow-hidden to make background images grow on hover
+ * even if you are using background-size: cover */
+
+.grow { @include hover-grow(); }
+
+.grow-large { @include hover-grow-large(); }
+
+/* Add pointer on hover */
+.pointer { @include hover-pointer(); }
+
+/*
+   Add shadow on hover.
+   Performant box-shadow animation pattern from
+   http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+*/
+.shadow-hover { @include hover-shadow(); }
+
+/* Combine with classes in skins and skins-pseudo for
+ * many different transition possibilities. */
+.bg-animate, .bg-animate:hover, .bg-animate:focus
+{
+	@include hover-bg-animate();
+}

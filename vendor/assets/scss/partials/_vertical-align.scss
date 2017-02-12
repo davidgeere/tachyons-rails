@@ -1,0 +1,23 @@
+/*
+   VERTICAL ALIGN
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $name, $alignment in $vertical-alignments
+{
+	.v-#{$name} { @include vertical-align-base($alignment); }
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $alignment in $vertical-alignments
+		{
+			.v-#{$name}-#{$key} { @include vertical-align-base($alignment); }
+		}
+	}
+}

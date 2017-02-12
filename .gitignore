@@ -9,6 +9,10 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/bin
+/bin/*
+/config/application.rb
+/config/boot.rb
 
 # Used by dotenv library to load environment variables.
 # .env

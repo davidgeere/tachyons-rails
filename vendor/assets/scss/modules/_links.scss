@@ -1,0 +1,28 @@
+/*
+   LINKS
+   Docs: http://tachyons.io/docs/elements/links/
+*/
+
+$link-text-decoration: none !default;
+$link-transition-animation: ease-in !default;
+$link-transition-duration: .15s !default;
+$link-transition-property: color !default;
+$link-outline-width: 1px !default;
+$link-outline-style: dotted !default;
+$link-outline-property: currentColor !default;
+
+@mixin link-base
+{
+  text-decoration: $link-text-decoration;
+  transition: $link-transition-property $link-transition-duration $link-transition-animation;
+
+	&:link, &:visited, &:hover, &:active, &:focus
+	{
+		transition: $link-transition-property $link-transition-duration $link-transition-animation;
+	}
+
+	&:focus
+	{
+		outline: $link-outline-width $link-outline-style $link-outline-property;
+	}
+}

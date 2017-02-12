@@ -1,0 +1,19 @@
+/*
+   ROTATIONS
+*/
+
+@each $name, $rotation in $rotations
+{
+	.rotate-#{$name} { @include rotation-base($rotation); }
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $rotation in $rotations
+		{
+			.rotate-#{$name}-#{$key} { @include rotation-base($rotation); }
+		}
+	}
+}

@@ -1,0 +1,26 @@
+/*
+  TEXT ALIGN
+  Docs: http://tachyons.io/docs/typography/text-align/
+  Base
+    t = text-align
+  Modifiers
+    l = left
+    r = right
+    c = center
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
+*/
+
+$text-alignments:
+(
+	l: left,
+	r: right,
+	c: center,
+);
+
+@mixin text-align-base($alignment)
+{
+	text-align: $alignment;
+}

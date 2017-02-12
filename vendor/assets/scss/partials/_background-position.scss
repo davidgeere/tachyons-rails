@@ -1,0 +1,37 @@
+/*
+    BACKGROUND POSITION
+    Base:
+    bg = background
+    Modifiers:
+    -center = center center
+    -top = top center
+    -right = center right
+    -bottom = bottom center
+    -left = center left
+    Media Query Extensions:
+      -ns = not-small
+      -m  = medium
+      -l  = large
+ */
+
+@each $name, $modifier in $background-position-modifiers
+{
+	.bg-#{$name}
+	{
+		@include background-position-base($modifier);
+	}
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $modifier in $background-position-modifiers
+		{
+			.bg-#{$name}-#{$key}
+			{
+				@include background-position-base($modifier);
+			}
+		}
+	}
+}

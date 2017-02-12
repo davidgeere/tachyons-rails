@@ -1,0 +1,25 @@
+/*
+
+   SKINS:PSEUDO
+   Customize the color of an element when
+   it is focused or hovered over.
+
+ */
+
+ /* Text colors */
+@each $name, $color in $global-palette
+{
+	.hover-#{$name}
+	{
+		@include hover-text-color-base($color);
+	}
+}
+
+/* Background colors */
+@each $name, $color in $global-palette
+{
+	.hover-bg-#{$name}
+	{
+		@include hover-background-color-base($color);
+	}
+}

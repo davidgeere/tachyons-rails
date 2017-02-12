@@ -1,0 +1,24 @@
+/*
+   POSITIONING
+   Docs: http://tachyons.io/docs/layout/position/
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $position in $positions
+{
+	.#{$position} { @include position-base($position); }
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $position in $positions
+		{
+			.#{$position}-#{$key} { @include position-base($position); }
+		}
+	}
+}

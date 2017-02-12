@@ -1,0 +1,57 @@
+/*
+   BORDER RADIUS
+   Docs: http://tachyons.io/docs/themes/border-radius/
+   Base:
+     br   = border-radius
+   Modifiers:
+     0    = 0/none
+     1    = 1st step in scale
+     2    = 2nd step in scale
+     3    = 3rd step in scale
+     4    = 4th step in scale
+   Literal values:
+     -100 = 100%
+     -pill = 9999px
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+@each $name, $radius in $border-radius-sizes
+{
+ .br#{$name}
+ {
+	 @include border-radius-base($radius);
+ }
+}
+
+@each $side in $border-radius-sides
+{
+	.br--#{$side}
+	{
+		@include border-radius-side($side);
+	}
+}
+
+@each $key, $value in $breakpoints
+{
+	@media #{$value}
+	{
+		@each $name, $radius in $border-radius-sizes
+		{
+		 .br#{$name}-#{$key}
+		 {
+			 @include border-radius-base($radius);
+		 }
+		}
+
+		@each $side in $border-radius-sides
+		{
+			.br--#{$side}-#{$key}
+			{
+				@include border-radius-side($side);
+			}
+		}
+	}
+}

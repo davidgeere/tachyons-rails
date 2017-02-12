@@ -1,0 +1,20 @@
+/*
+   VERTICAL ALIGN
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+*/
+
+$vertical-alignments:
+(
+	base: baseline,
+	mid: middle,
+	top: top,
+	btm: bottom,
+);
+
+@mixin vertical-align-base($alignment)
+{
+	vertical-align: $alignment;
+}

@@ -1,0 +1,28 @@
+/*
+   FONT FAMILY GROUPS
+   Docs: http://tachyons.io/docs/typography/font-family/
+*/
+
+$fonts:
+(
+	sans-serif: (-apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif),
+	serif: (georgia, times, serif),
+	system-sans-serif: (sans-serif),
+	system-serif: (serif),
+	code: (Consolas, monaco, monospace),
+	courier: ('Courier Next', courier, monospace),
+	helvetica: ('helvetica neue', helvetica, sans-serif),
+	avenir: ('avenir next', avenir, sans-serif),
+	athelas: (athelas, georgia, serif),
+	georgia: (georgia, serif),
+	times: (times, serif),
+	bodoni: ("Bodoni MT", serif),
+	calisto: ("Calisto MT", serif),
+	garamond: (garamond, serif),
+	baskerville: (baskerville, serif)
+);
+
+@mixin font-family-base($family)
+{
+	font-family: $family;
+}

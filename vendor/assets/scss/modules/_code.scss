@@ -1,0 +1,14 @@
+/*
+   CODE
+*/
+
+$code-overflow-x: auto !default;
+$code-overflow-y: hidden !default;
+$code-overflow: scroll !default;
+
+@mixin code-pre()
+{
+	overflow-x: $code-overflow-x;
+  overflow-y: $code-overflow-y;
+  overflow:   $code-overflow;
+}

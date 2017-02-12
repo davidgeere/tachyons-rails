@@ -1,0 +1,87 @@
+/*
+  FLEXBOX
+  Media Query Extensions:
+   -ns = not-small
+   -m  = medium
+   -l  = large
+*/
+
+$flex-min-width: 0 !default;
+$flex-min-height: 0 !default;
+$flex-grow: 1 !default;
+$flex-shrink: 1 !default;
+$flex-basis: auto !default;
+
+$flex-orders:
+(
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+	6: 6,
+	7: 7,
+	8: 8,
+	last: 99999,
+);
+
+$flex-options:
+(
+	start: flex-start,
+	end: flex-end,
+	center: center,
+	baseline: baseline,
+	between: space-between,
+	around: space-around,
+	stretch: stretch,
+);
+
+$flex-types:
+(
+	items: (attribute: align-items, options: (start, end, center, baseline, stretch)),
+	self: (attribute: align-self, options: (start, end, center, baseline, stretch)),
+	justify: (attribute: justify-content, options: (start, end, center, between, around)),
+	content: (attribute: align-content, options: (start, end, center, between, around, stretch)),
+);
+
+@mixin flex-display($display: flex)
+{
+	display: $display;
+}
+
+@mixin flex-auto()
+{
+	flex: $flex-grow $flex-shrink $flex-basis;
+  min-width: $flex-min-width;
+  min-height: $flex-min-height;
+}
+
+@mixin flex-none()
+{
+	flex: none;
+}
+
+@mixin flex-column()
+{
+	flex-direction: column;
+}
+
+@mixin flex-row()
+{
+	flex-direction: row;
+}
+
+@mixin flex-wrap()
+{
+	flex-wrap: wrap;
+}
+
+@mixin flex-base($attribute, $option)
+{
+	#{$attribute}: #{map-get($flex-options, $option)};
+}
+
+@mixin flex-order($order)
+{
+	order: $order;
+}

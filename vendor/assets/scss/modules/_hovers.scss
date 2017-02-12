@@ -1,0 +1,204 @@
+/*
+  HOVER EFFECTS
+  Docs: http://tachyons.io/docs/themes/hovers/
+    - Dim
+    - Glow
+    - Hide Child
+    - Underline text
+    - Grow
+    - Pointer
+    - Shadow
+*/
+
+/*
+  Dim element on hover by adding the dim class.
+*/
+
+$hover-dim-opacity: 1 !default;
+$hover-dim-opacity-focus: .5 !default;
+$hover-dim-opacity-active: .8 !default;
+$hover-dim-transition-animation: ease-in !default;
+$hover-dim-transition-duration: .15s !default;
+$hover-dim-transition-property: opacity !default;
+
+$hover-glow-transition-animation: ease-in !default;
+$hover-glow-transition-duration: .15s !default;
+$hover-glow-transition-property: opacity !default;
+$hover-glow-opacity-focus: 1 !default;
+
+$hover-child-transition-animation: ease-in !default;
+$hover-child-transition-duration: .15s !default;
+$hover-child-transition-property: opacity !default;
+
+$hover-bg-transition-animation: ease-in-out !default;
+$hover-bg-transition-duration: .15s !default;
+$hover-bg-transition-property: background-color !default;
+
+$hover-grow-transition-animation: ease-out !default;
+$hover-grow-large-transition-animation: ease-in-out !default;
+$hover-grow-transition-duration: .25s !default;
+$hover-grow-transition-property: transform !default;
+
+$hover-grow-scale-up: 1.05 !default;
+$hover-grow-scale-down: .90 !default;
+
+$hover-grow-large-scale-up: 1.2 !default;
+$hover-grow-large-scale-down: .95 !default;
+
+$hover-shadow-transition-animation: cubic-bezier(0.165, 0.84, 0.44, 1) !default;
+$hover-shadow-transition-duration: .5s !default;
+$hover-shadow-transition-property: all !default;
+$hover-shadow-transition-after-property: opacity !default;
+$hover-shadow-box-shadow: 0px 0px 16px 2px rgba( 0, 0, 0, .2 ) !default;
+
+@mixin hover-dim()
+{
+	opacity: $hover-dim-opacity;
+  transition: $hover-dim-transition-property $hover-dim-transition-duration $hover-dim-transition-animation;
+
+	&:hover, &:focus
+	{
+	  opacity: $hover-dim-opacity-focus;
+	  transition: $hover-dim-transition-property $hover-dim-transition-duration $hover-dim-transition-animation;
+	}
+
+	&:active
+	{
+	  opacity: $hover-dim-opacity-active;
+		transition: $hover-dim-transition-property $hover-dim-transition-duration $hover-dim-transition-animation;
+	}
+}
+
+/*
+  Animate opacity to 100% on hover by adding the glow class.
+*/
+@mixin hover-glow()
+{
+	transition: $hover-glow-transition-property $hover-glow-transition-duration $hover-glow-transition-animation;
+
+	&:hover, &:focus
+	{
+	  opacity: $hover-glow-opacity-focus;
+	  transition: $hover-glow-transition-property $hover-glow-transition-duration $hover-glow-transition-animation;
+	}
+}
+
+/*
+  Hide child & reveal on hover:
+  Put the hide-child class on a parent element and any nested element with the
+  child class will be hidden and displayed on hover or focus.
+  <div class="hide-child">
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+  </div>
+*/
+
+@mixin hover-hide-child()
+{
+	&.child
+	{
+	  opacity: 0;
+	  transition: $hover-child-transition-property $hover-child-transition-duration $hover-child-transition-animation;
+	}
+
+	&:hover, &:focus, &:active
+	{
+		&.child
+		{
+			opacity: 1;
+		  transition: $hover-child-transition-property $hover-child-transition-duration $hover-child-transition-animation;
+		}
+	}
+}
+
+@mixin hover-underline()
+{
+	&:hover, &:focus
+	{
+		text-decoration: underline;
+	}
+}
+
+/* Can combine this with overflow-hidden to make background images grow on hover
+ * even if you are using background-size: cover */
+
+ @mixin hover-grow-base($transition-property, $transition-duration, $transition-animation, $scale-up, $scale-down)
+ {
+	 -moz-osx-font-smoothing: grayscale;
+   backface-visibility: hidden;
+   transform: translateZ(0);
+   transition: $transition-property $transition-duration $transition-animation;
+
+ 	&:hover, &:focus
+ 	{
+ 		transform: scale($scale-up);
+ 	}
+
+ 	&:active
+ 	{
+ 	  transform: scale($scale-down);
+ 	}
+ }
+
+@mixin hover-grow()
+{
+	@include hover-grow-base($hover-grow-transition-property, $hover-grow-transition-duration, $hover-grow-transition-animation, $hover-grow-scale-up, $hover-grow-scale-down);
+}
+
+@mixin hover-grow-large()
+{
+	@include hover-grow-base($hover-grow-transition-property, $hover-grow-transition-duration, $hover-grow-large-transition-animation, $hover-grow-large-scale-up, $hover-grow-large-scale-down);
+}
+
+/* Add pointer on hover */
+@mixin hover-pointer()
+{
+	&:hover
+	{
+		cursor: pointer;
+	}
+}
+
+/*
+   Add shadow on hover.
+   Performant box-shadow animation pattern from
+   http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+*/
+
+@mixin hover-shadow()
+{
+	cursor: pointer;
+  position: relative;
+  transition: $hover-shadow-transition-property $hover-shadow-transition-duration $hover-shadow-transition-animation;
+
+	&::after
+	{
+		content: '';
+	  box-shadow: $hover-shadow-box-shadow;
+	  opacity: 0;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: -1;
+	  transition: $hover-shadow-transition-after-property $hover-shadow-transition-duration $hover-shadow-transition-animation;
+	}
+
+	&:hover, &:focus
+	{
+		&::after
+		{
+			opacity: 1;
+		}
+	}
+}
+
+/* Combine with classes in skins and skins-pseudo for
+ * many different transition possibilities. */
+ @mixin hover-bg-animate()
+ {
+	 transition: $hover-bg-transition-property $hover-bg-transition-duration $hover-bg-transition-animation;
+ }
